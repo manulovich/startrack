@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dependencies/framekot.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Star Track</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="js-wrapper">
+
+        <section class="burger-menu" v-show="burgerMenuStatus">
+
+            <transition name="burger-left">
+                <div class="burger-menu__left-block" v-show="burgerMenuStatus" v-on:click="burgerClose"></div>
+            </transition>
+
+            <transition name="burger-right">
+                <div class="burger-menu__right-block" v-show="burgerMenuStatus">
+                    <div class="burger" v-on:click="burgerClose">
+                        <span></span>
+                    </div>
+
+                    <p class="burger-menu__item" v-on:click="{burgerClose(), aboutTo()}">О нас</p>
+                    <p class="burger-menu__item" v-on:click="{burgerClose(), projectTo()}">Проекты</p>
+                    <p class="burger-menu__item" v-on:click="{burgerClose(), servicesTo()}">Услуги</p>
+                    <p class="burger-menu__item" v-on:click="{burgerClose(), pricesTo()}">Цены</p>
+                    <p class="burger-menu__item" v-on:click="{burgerClose(), contactTo()}">Контакты</p>
+
+                    <div class="button button-bg-black">Заказать звонок</div>
+                </div>
+            </transition>
+
+        </section>
+        <!--end burger-menu-->
+        <section class="page-up" v-on:click="pageUp">
+            <span></span>
+        </section>
+        <!--edn page-up-->
+        <section class="b-page b-page-screen-one b-page-black" @mousemove="greetingAnim">
+            <div class="b-container column-between">
+
+                <div class="b-page-screen-one__check-number">
+                    <p class="active" v-on:click="changeActive('webStatus', 0)">1</p>
+                    <p v-on:click="changeActive('designStatus', 1)">2</p>
+                    <p v-on:click="changeActive('brandStatus', 2)">3</p>
+                    <p v-on:click="changeActive('integrationStatus', 3)">4</p>
+                </div>
+                <!--end check-number-->
+                <header class="b-header center row-between">
+                    <div class="logo center">
+                        <div class="logo__icon"></div>
+                        <div class="logo__text">
+                            <p>Star</p>
+                            <p>Track</p>
+                        </div>
+                    </div>
+                    <nav class="nav row-center">
+                        <p class="nav__item" v-on:click="aboutTo">О нас</p>
+                        <p class="nav__item" v-on:click="projectTo">Проекты</p>
+                        <p class="nav__item" v-on:click="servicesTo">Услуги</p>
+                        <p class="nav__item" v-on:click="pricesTo">Цены</p>
+                        <p class="nav__item" v-on:click="contactTo">Контакты</p>
+                    </nav>
+                    <button class="button">Заказать звонок</button>
+                    <div class="burger" v-on:click="burgerOpen">
+                        <span></span>
+                    </div>
+                </header>
+                <!--end header-->
+                <main class="b-page-screen-one__main center">
+
+                    <div class="b-page-screen-one__left-block">
+                        <transition name="title-anim">
+                            <h1 class="title" v-show="status.webStatus">Разработка web-сайтов любой сложности</h1>
+                        </transition>
+                        <!--end web-->
+                        <transition name="title-anim">
+                            <h1 class="title" v-show="status.designStatus">Разработка web-дизайна любой сложности</h1>
+                        </transition>
+                        <!--end design-->
+                        <transition name="title-anim">
+                            <h1 class="title" v-show="status.brandStatus">Разработка бренда для вашей компании</h1>
+                        </transition>
+                        <!--end brand-->
+                        <transition name="title-anim">
+                            <h1 class="title" v-show="status.integrationStatus">Интеграция с любыми CMS</h1>
+                        </transition>
+                        <!--end integration-->
+                        <button class="button button-bg-black">Оставить заявку</button>
+                    </div>
+
+                    <div class="b-page-screen-one__right-block">
+                        <div class="b-page-screen-one__left-wing"></div>
+                        <img src="img/greeting.png" class="b-page-screen-one__center-wing"></img>
+                        <div class="b-page-screen-one__right-wing"></div>
+                    </div>
+
+                </main>
+                <!--end main-->
+                <footer class="b-footer center row-between">
+                    <div class="soc-block">
+                        <img src="img/facebook.png" alt="facebook" class="soc-block__facebook">
+                        <img src="img/twitter.png" alt="twitter" class="soc-block__twitter">
+                        <img src="img/pen.png" alt="pinterest" class="soc-block__pinterest">
+                        <img src="img/inst.png" alt="instagram" class="soc-block__inst">
+                        <img src="img/soc.png" alt="dribbble" class="soc-block__dribbble">
+                    </div>
+                    <p class="phone-number">7 495 128-02-15</p>
+                </footer>
+                <!--end footer-->
+            </div>
+        </section>
+        <!--end b-page-screen-one-->
+        <section class="b-page b-page-screen-two">
+            <div class="b-container row-center">
+                <div class="b-page-screen-two__left-block">
+                    <div class="icon-container">
+                        <div class="icon-container__bg">
+                        </div>
+                        <img class="icon-container__icon" src="img/about.png">
+                    </div>
+                </div>
+                <!--end b-page-screen-one__left-block-->
+                <div class="b-page-screen-two__right-block">
+                    <p class="subtitle">Коротко о нас</p>
+                    <h2 class="title">Веб-студия  “Star Track”</h2>
+                    <div class="b-page-screen-two__content">
+                        <p>
+                            <span>Star Tarck</span> предоставляет услуги полного цикла по разработке, внедрению и
+                            сопровождению IT-решений.
+                            Мы разрабатываем функциональные веб-сайты, мобильные приложения,
+                            проектируем правильные интерфейсы, реализуем и автоматизируем сложные бизнес-процессы,
+                            и делаем это все красиво.
+                        </p>
+                    </div>
+                    <div class="b-page-screen-two__stats stats">
+                        <div class="stats__item">
+                            <h3 class="title">17+ лет</h3>
+                            <p class="item__content">опыт с 2000 года</p>
+                        </div>
+                        <div class="stats__item">
+                            <h3 class="title">300+</h3>
+                            <p class="item__content">реализованных проектов</p>
+                        </div>
+                        <div class="stats__item">
+                            <h3 class="title">78+</h3>
+                            <p class="item__content">специалистов в команде</p>
+                        </div>
+                        <div class="stats__item">
+                            <h3 class="title">25~</h3>
+                            <p class="item__content">заказов в неделю</p>
+                        </div>
+                    </div>
+                </div>
+                <!--end b-page-screen-two__right-block-->
+            </div>
+        </section>
+        <!--end b-page-screen-two-->
+        <section class="b-page b-page-black b-page-screen-three">
+            <div class="b-page-screen-three__cycle">
+                <div class="b-container">
+
+                    <p class="subtitle">Наша специализация</p>
+                    <h2 class="title">Услуги полного циикла</h2>
+
+                    <div class="b-page-screen-three__cycle-block cycle-block">
+                        <div class="cycle-block__item">
+                            <img src="img/page.svg" alt="page" class="cycle-block__icon">
+                            <h3 class="cycle-block__create-text">Создание сайтов</h3>
+                            <p class="cycle-block__content">
+                                Комплекс работ от проектирования до программирования, выполняемый поэтапно.
+                                Мы не перейдем на следующий шаг, пока не сделаем текущий.
+                            </p>
+                        </div>
+                        <!--end cycle-block__item-->
+                        <div class="cycle-block__item">
+                            <img src="img/design.svg" alt="design" class="cycle-block__icon">
+                            <h3 class="cycle-block__create-text">Дизайн интерфейсов</h3>
+                            <p class="cycle-block__content">
+                                Создание индивидуальной концепции, от лаконичных решений до сложных динамических
+                                элементов.
+                                Пользовательский сценарий и структура сайта. Лаконичный интерфейс.
+                            </p>
+                        </div>
+                        <!--end cycle-block__item-->
+                        <div class="cycle-block__item">
+                            <img src="img/brand.svg" alt="brand" class="cycle-block__icon">
+                            <h3 class="cycle-block__create-text">Брендинг</h3>
+                            <p class="cycle-block__content">
+                                Разработка логотипа и фирменного стиля с целью подчеркнуть индивидуальность и создать
+                                узнаваемое "лицо" компании.
+                                Уникальный бренд компании.
+                            </p>
+                        </div>
+                        <!--end cycle-block__item-->
+                        <div class="cycle-block__item">
+                            <img src="img/intiger.svg" alt="intiger" class="cycle-block__icon">
+                            <h3 class="cycle-block__create-text">Интеграция</h3>
+                            <p class="cycle-block__content">
+                                Внедрение системы для управления несколькими сайтами на разных CMS сразу, в одной
+                                административной панели.
+                                Разработка и внедрение CRM.
+                            </p>
+                        </div>
+                        <!--end cycle-block__item-->
+                    </div>
+                    <!--end b-page-screen-three__cycle-block-->
+                </div>
+            </div>
+            <!--end b-page-screen-three__cycle-->
+            <div class="b-page-screen-three__projects projects">
+                <div class="b-container">
+                    <div class="projects__logo row-center" v-show="showDesign">
+                        <div class="projects__item" v-bind:style="{
+                                background: 'url(' + backstage + ')',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center center'
+                            }">
+                            <span class="projects__plus"></span>
+                            <div class="projects__text">
+                                <h3 class="projects__title">Логотипы</h3>
+                                <p class="projects__subtitle">Backstage</p>
+                            </div>
+                        </div>
+                        <!--end projects__item-->
+                        <div class="projects__item" v-bind:style="{
+                                background: 'url(' + castle + ')',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center center'
+                            }">
+                            <span class="projects__plus"></span>
+                            <div class="projects__text">
+                                <h3 class="projects__title">Логотипы</h3>
+                                <p class="projects__subtitle">Castle Rock</p>
+                            </div>
+                        </div>
+                        <!--end projects__item-->
+                        <div class="projects__item projects__item-next" v-bind:style="{
+                                background: 'url(' + page + ') no-repeat',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center center'
+                            }" v-on:click="showDesign = false; showPage = true">
+                            <span class="projects__plus"></span>
+                            <div class="projects__text">
+                                <h3 class="projects__title">Сайты</h3>
+                                <p class="projects__subtitle">Accelerate</p>
+                            </div>
+                        </div>
+                        <!--end projects__item-->
+                    </div>
+                    <!--end projects__logo-->
+                    <div class="projects__page row-center" v-show="showPage">
+                        <div class="projects__item" v-bind:style="{
+                                background: 'url(' + twitter + ')',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center center'
+                            }">
+                            <span class="projects__plus"></span>
+                            <div class="projects__text">
+                                <h3 class="projects__title">Сайты</h3>
+                                <p class="projects__subtitle">Twitter</p>
+                            </div>
+                        </div>
+                        <!--end projects__item-->
+                        <div class="projects__item" v-bind:style="{
+                                background: 'url(' + digital + ')',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center center'
+                            }">
+                            <span class="projects__plus"></span>
+                            <div class="projects__text">
+                                <h3 class="projects__title">Сайты</h3>
+                                <p class="projects__subtitle">Digital</p>
+                            </div>
+                        </div>
+                        <!--end projects__item-->
+                        <div class="projects__item projects__item-next" v-bind:style="{
+                                background: 'url(' + backstage + ') no-repeat',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center center'
+                            }" v-on:click="showDesign = true; showPage = fales">
+                            <span class="projects__plus"></span>
+                            <div class="projects__text">
+                                <h3 class="projects__title">Логотипы</h3>
+                                <p class="projects__subtitle">Backstage</p>
+                            </div>
+                        </div>
+                        <!--end projects__item-->
+                    </div>
+                    <!--end projects__page-->
+                </div>
+            </div>
+            <!--end b-page-screen-three__projects-->
+        </section>
+        <!--end b-page-screen-three-->
+        <section class="b-page b-page-grey b-page-screen-four">
+            <div class="b-container">
+
+                <p class="subtitle">наша команда</p>
+
+                <h2 class="title">Команда профессионалов с огромным опытом</h2>
+
+                <div class="b-page-screen-four__we row-center">
+                    <div class="b-page-screen-four__item">
+                        <img src="img/one.png" alt="prof" class="b-page-screen-four__icon">
+                        <p class="b-page-screen-four__prof">Менеджер</p>
+                        <h3 class="b-page-screen-four__name">Ирина Петрова</h3>
+                    </div>
+                    <!--end b-page-screen-four__item-->
+
+                    <div class="b-page-screen-four__item">
+                        <img src="img/two.png" alt="prof" class="b-page-screen-four__icon">
+                        <p class="b-page-screen-four__prof">Веб-дизайнер</p>
+                        <h3 class="b-page-screen-four__name">Денис Иванов</h3>
+                    </div>
+                    <!--end b-page-screen-four__item-->
+
+                    <div class="b-page-screen-four__item">
+                        <img src="img/three.png" alt="prof" class="b-page-screen-four__icon">
+                        <p class="b-page-screen-four__prof">Руководитель</p>
+                        <h3 class="b-page-screen-four__name">Роман Эдуардович</h3>
+                    </div>
+                    <!--end b-page-screen-four__item-->
+                </div>
+
+            </div>
+        </section>
+        <!--end b-page-screen-four-->
+        <section class="b-page b-page-screen-five">
+            <div class="b-container">
+                <p class="subtitle">блог</p>
+                <h2 class="title">Последние события студии</h2>
+
+                <div class="b-page-screen-five__blog row-center">
+                    <div class="b-page-screen-five__item">
+                        <div class="b-page-screen-five__top">
+                            <img src="img/blockOne.png" alt="preview" class="b-page-screen-five__icon">
+                            <h4 class="b-page-screen-five__area">технологии</h4>
+                        </div>
+                        <div class="b-page-screen-five__content">
+                            <time class="b-page-screen-five__data">12.02.2020 23:12</time>
+                            <h3 class="b-page-screen-five__title">
+                                «Это фейки»: Facebook удалила аккаунты и группы
+                            </h3>
+                            <p class="b-page-screen-five__subtitle">
+                                Компания Facebook заявила об удалении нескольких сетей фейковых аккаунтов и групп в
+                                своих социальных сетях
+                            </p>
+                            <a href="#" class="b-page-screen-five__more">Читать полностью</a>
+                        </div>
+                    </div>
+                    <!--end b-page-screen-five__item-->
+                    <div class="b-page-screen-five__item">
+                        <div class="b-page-screen-five__top">
+                            <img src="img/blockTwo.png" alt="preview" class="b-page-screen-five__icon">
+                            <h4 class="b-page-screen-five__area">дизайн</h4>
+                        </div>
+                        <div class="b-page-screen-five__content">
+                            <time class="b-page-screen-five__data">12.02.2020 21:18</time>
+                            <h3 class="b-page-screen-five__title">
+                                Интеграция экосистемы: чем отличаются экосистемы от интеграции
+                            </h3>
+                            <p class="b-page-screen-five__subtitle">
+                                В рамках презентации Samsung представила четыре новых смартфона, каждый из которых
+                                получит глубокую интеграцию с сервисами
+                            </p>
+                            <a href="#" class="b-page-screen-five__more">Читать полностью</a>
+                        </div>
+                    </div>
+                    <!--end b-page-screen-five__item-->
+                    <div class="b-page-screen-five__item">
+                        <div class="b-page-screen-five__top">
+                            <img src="img/blockThree.png" alt="preview" class="b-page-screen-five__icon">
+                            <h4 class="b-page-screen-five__area">новое</h4>
+                        </div>
+                        <div class="b-page-screen-five__content">
+                            <time class="b-page-screen-five__data">11.02.2020 13:11</time>
+                            <h3 class="b-page-screen-five__title">
+                                Жизнь внутри фото: Samsung представил новоое поколение устройств
+                            </h3>
+                            <p class="b-page-screen-five__subtitle">
+                                Компания Samsung провела свою ежегодную презентацию, представив миру сразу пять новых
+                                устройств с поддержкой полетов в космосе и за ним
+                            </p>
+                            <a href="#" class="b-page-screen-five__more">Читать полностью</a>
+                        </div>
+                    </div>
+                    <!--end b-page-screen-five__item-->
+                </div>
+            </div>
+            <!--end b-container-->
+            <div class="write-us" v-bind:class="{writeUsAcitve: writeUsMain}">
+
+                <div class="write-us__prew"
+                    v-on:click="writeUsMain = !writeUsMain; writeUsPrewStatus = !writeUsPrewStatus"
+                    v-show="writeUsPrewStatus">
+                    <div class="write-us__text">
+                        <h3 class="write-us__title">Напишите нам, мы онлайн!</h3>
+                        <p class="write-us__name">jivosite</p>
+                    </div>
+                </div>
+                <!--end write-us__prew-->
+                <transition name="main">
+                    <div class="write-us__main" v-show="writeUsMain">
+                        <header class="write-us__header center row-between">
+                            <div class="logo center">
+                                <div class="logo__icon"></div>
+                                <div class="logo__text">
+                                    <p>Star</p>
+                                    <p>Track</p>
+                                </div>
+                            </div>
+                            <div class="write-us__btn-closed"
+                                v-on:click="writeUsMain = !writeUsMain; writeUsPrewStatus = !writeUsPrewStatus">
+                                <span></span>
+                            </div>
+                        </header>
+                        <!--end write-us__header-->
+                        <div class="write-us__change-text">
+                            <p>Title и subtitle автоматически обрезаются,чтобы количество символов в каждом блоке было
+                                одинаковое.</p>
+
+                            <div class="write-us__input-change">
+                                <p>Title:</p>
+                                <textarea name="title" class="write-us__change-title"></textarea>
+                                <p>Subtitle:</p>
+                                <textarea name="subtitle" class="write-us__change-subtitle"></textarea>
+                                <button class="button button-bg-black" v-on:click="sendChange">Изменить</button>
+                            </div>
+                        </div>
+                    </div>
+                </transition>
+                <!--end write-us__main-->
+            </div>
+            <!--end write-us-->
+        </section>
+        <!--b-page-screen-five-->
+        <section class="b-page b-page-grey b-page-screen-six">
+            <div class="b-container center column-between">
+                <h2 class="title">Есть предложения?</h2>
+                <p class="b-page-screen-six__together">Вместе мы подберем решение и подходящий инструмент.</p>
+                <p class="b-page-screen-six__contact">Напишите нам на info@startrack.ru, позвоните +7 983 612-43-12 или
+                    заполните форму:</p>
+
+                <form action="#" class="b-page-screen-six__form">
+                    <input type="text" name="name" class="b-page-screen-six__input" placeholder="Ваше имя">
+                    <input type="email" namme="mail" class="b-page-screen-six__input" placeholder="Эл. почта">
+                    <input type="tel" name="tel" class="b-page-screen-six__input" placeholder="Телефон">
+                    <button class="button">Оставить заявку</button>
+                </form>
+            </div>
+        </section>
+        <!--end b-page-screen-six-->
+        <footer class="b-page b-page-black b-footer">
+            <div class="b-container">
+                <div class="row-between">
+                    <div class="b-footer__left-block">
+                        <h2 class="title">Давайте создадим что-то великое вместе!</h2>
+                        <div class="b-footer__subtitle">
+                            <p>У вас есть идея для проекта или предложение для сотрудничества?</p>
+                            <p>Мы будем рады вас выслушать :-)</p>
+                        </div>
+                    </div>
+                    <!--end b-page-screen-seven__left-block-->
+                    <div class="b-footer__right-block">
+                        <button class="button">Оставить заявку</button>
+                    </div>
+                    <!--end b-page-screen-seven__right-block-->
+                </div>
+                <div class="b-footer__bottom row-between">
+                    <div class="b-footer__text row-center">
+                        <p class="b-footer__law">© 2019 - Все права защищены.</p>
+                        <a href="#" class="b-footer__control">Управление куки</a>
+                    </div>
+
+                    <div class="soc-block">
+                        <img src="img/facebook.png" alt="facebook" class="soc-block__facebook">
+                        <img src="img/twitter.png" alt="twitter" class="soc-block__twitter">
+                        <img src="img/pen.png" alt="pinterest" class="soc-block__pinterest">
+                        <img src="img/inst.png" alt="instagram" class="soc-block__inst">
+                        <img src="img/soc.png" alt="dribbble" class="soc-block__dribbble">
+                    </div>
+                </div>
+                <!--b-footer__bottom-->
+            </div>
+        </footer>
+        <!--end b-page-screen-seven-->
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

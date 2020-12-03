@@ -1,0 +1,47 @@
+.icon-container{   
+    width: 463px;
+    height: 548px;
+    position: relative;
+
+    &:hover{
+
+        .icon-container__bg{
+            transform: translate(6%, -6%);
+            width: 89%;
+            height: 89%;
+        }
+
+        .icon-container__icon{
+            transform: translate(-6%, 6%);
+        }
+    }
+
+    @media(max-width: 1200px){
+        width: 400px;
+        height: 495px;
+    }
+
+    @media(max-width: 950px){
+        width: 300px;
+        height: 395px;
+    }
+
+    &__bg,
+    &__icon{
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        transition: .3s;
+    }
+
+    &__bg{
+        left: 0px;
+        bottom: 0px;
+        background-color: #000;
+    }
+
+    &__icon{
+        right: 0px;
+        top: 0px;
+    }
+}

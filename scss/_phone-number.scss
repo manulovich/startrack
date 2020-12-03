@@ -1,0 +1,14 @@
+.phone-number{
+    font-weight: 500;
+    font-size: 12px;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover{
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    &:before{
+        content:  "+ ";
+    }
+}

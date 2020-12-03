@@ -1,0 +1,46 @@
+.logo{
+    cursor: default;
+
+    @media(max-width: 850px){
+        
+        .logo__icon{
+            width: 24px;
+            height: 24px;
+        }
+
+        .logo__text{
+
+            p{
+                font-size: 15px;
+                line-height: 15px;
+            }
+        }
+    }
+
+    &:hover{
+
+        .logo__icon{
+            transform: rotate(360deg);
+        }
+    }
+
+    &__icon{
+        width: 36px;
+        height: 36px;
+        background-color: #fff;
+        clip-path: polygon(0% 30%, 100% 0%, 70% 100%, 0% 100%);
+        margin: 0px 4px 0px 0px;
+        transition: .3s;
+    }
+
+    &__text{
+        margin: 0px 0px 0px 4px;
+        
+        p{
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+            transition: .3s;
+        }
+    }
+}

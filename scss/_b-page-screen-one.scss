@@ -1,0 +1,226 @@
+.b-page-screen-one{
+    height: 615px;
+
+    .soc-block{
+        height: 30px;
+    }
+
+    @media(max-width: 850px){
+        height: 500px;
+    }
+    
+    .b-container{
+        position: relative;
+    }
+
+    &__check-number{
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+
+        @media(max-width: 950px){
+            top: auto;
+            bottom: 13px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media(max-width: 850px){
+            top: 20%;
+        }
+
+        p{
+            padding: 5px;
+            margin: 0px 0px 16px 0px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: .3s;
+
+            @media(max-width: 950px){
+                margin: 0px 16px 0px 0px;
+                display: inline;
+            }
+
+            &:last-child{
+                margin: 0px;
+            }
+        }
+
+        .active{
+            color: #fff;
+        }
+    }
+
+    &__main{
+        margin: 24px 0px 24px 0px;
+        padding: 0px 110px;
+        @media(max-width: 850px){
+            padding: 0px 50px;
+        }
+
+        @media(max-width: 550px){
+            height: 30%;
+        }
+
+        @media(max-width: 470px){
+            padding: 0px 30px;
+        }
+    }
+
+    &__left-block{
+        flex: 0 0 50%;
+        position: relative;
+        height: 100%;
+        padding: 0px 36px 0px 0px;
+
+        @media(max-width: 1200px){
+            padding: 0px 20px 0px 0px;
+        }
+
+        @media(max-width: 470px){
+            flex: 0 0 100%;
+            padding: 0px;
+        }
+
+        .title,
+        .button{
+            position: absolute;
+        }
+
+        .title{
+            top: 0px;
+            font-size: 36px;
+            font-weight: 900;
+
+            @media(max-width: 1200px){
+                font-size: 30px;
+            }
+
+            @media(max-width: 850px){
+                font-size: 25px;
+            }
+
+            @media(max-width: 550px){
+                font-size: 20px;
+            }
+        }
+
+        .button{
+            bottom: 0px;
+        }
+    }
+
+    &__right-block{
+        flex: 0 0 500px;
+        height: 260px;
+        padding: 0px 0px 0px 36px;
+        position: relative;
+
+        @media(max-width: 1200px){
+            height: 200px;
+            padding: 0px 0px 0px 20px;
+        }
+
+        @media(max-width: 850px){
+            flex: 0 0 300px;
+            height: 150px;
+        }
+
+        @media(max-width: 550px){
+            flex: 0 0 200px;
+            height: 100px;
+        }
+
+        @media(max-width: 470px){
+            display: none;
+        }
+    }
+
+    &__left-wing,
+    &__right-wing,
+    &__center-wing{
+        position: absolute;
+        width: 260px;
+        height: 100%;
+        top: 0px;
+
+        @media(max-width: 1200px){
+            width: 200px;
+        }
+
+        @media(max-width: 850px){
+            width: 150px;
+        }
+
+        @media(max-width: 550px){
+            width: 100px;
+        }
+    }
+
+    &__left-wing,
+    &__right-wing {
+        background-color: #fff;
+        clip-path: polygon(40% 0%, 100% 0%, 100% 60%, 0% 100%);
+        transform: rotate(-10deg);
+	}
+
+	&__left-wing {
+        left: 40px;
+
+        @media(max-width: 1200px){
+           left: 90px;
+        }
+
+        @media(max-width: 850px){
+            left: 30px;
+        }
+
+        @media(max-width: 550px){
+            left: 19px;
+        }
+        
+	}
+
+	&__center-wing {
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%) rotate(35deg);
+        filter: brightness(0.5);
+
+        @media(max-width: 850px){
+            top: 30px;
+        }
+
+        @media(max-width: 550px){
+            top: 20px;
+        }
+	}
+
+	&__right-wing {
+        right: -20px;
+
+        @media(max-width: 1200px){
+            right: 20px;
+        }
+
+        @media(max-width: 850px){
+            right: -30px;
+        }
+
+        @media(max-width: 550px){
+            right: -19px;
+        }
+    }
+}
+
+//title-anim
+
+.title-anim-enter-active, .title-anim-leave-active {
+    transition: .3s;
+}
+.title-anim-enter, .title-anim-leave-to {
+    opacity: 0;
+ }

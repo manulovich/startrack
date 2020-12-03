@@ -1,0 +1,137 @@
+.b-page-screen-two{
+    color: #0F0F0F;
+
+    &__left-block{  
+        padding: 0px (75px / 2) 0px 0px;
+
+        @media(max-width: 950px){
+            padding: 0px 20px 0px 0px;
+        }
+
+        @media(max-width: 700px){
+            display: none;
+        }
+    }
+
+    &__right-block{
+        padding: 0px 0px 0px (75px / 2);
+
+        .subtitle{
+            margin: 22px 0px 0px 0px;
+        }
+
+        h2.title{
+            margin: 33px 0px 56px 0px;
+
+            @media(max-width: 950px){
+                margin: 13px 0px 36px 0px;
+            }
+        }
+
+        @media(max-width: 950px){
+            padding: 0px 0px 0px 20px;
+        }
+
+        @media(max-width: 700px){
+            padding: 0px;
+        }
+    }
+
+    &__content{
+        margin: 0px 0px 0px 55px;
+        line-height: 35px;
+        font-size: 19px;
+
+        @media(max-width: 1200px){
+            margin: 0px 0px 0px 40px;
+            line-height: 30px;
+        }
+
+        span{
+            font-weight: 700;
+        }
+    }
+
+    &__stats{
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+
+        @media(max-width: 950px){
+            flex-wrap: wrap;
+        }
+
+        @media(max-width: 550px){
+            flex-wrap: wrap;
+        }
+
+        .stats__item{
+            flex: 0 0 143px;
+            margin: 63px 20px 0px 0px;
+
+            @media(max-width: 1200px){
+                flex: 0 0 100px;
+            }
+
+            @media(max-width: 950px){
+                flex: 0 0 50%;
+                margin: 36px 0px 0px 0px;
+                padding: 0px 10px 0px 0px;
+            }
+
+            @media(max-width: 700px){
+                flex: 0 0 25%;
+            }
+
+            @media(max-width: 550px){
+                flex: 0 0 50%;
+            }
+
+            &:nth-child(even){
+
+                @media(max-width: 950px){
+                    padding: 0px;
+                }
+
+                @media(max-width: 700px){
+                    padding: 0px 10px 0px 0px;
+                }
+
+                @media(max-width: 550px){
+                    text-align: right;
+                    padding: 0px;
+                }
+            }
+
+            &:last-child{
+                margin: 63px 0px 0px 0px;
+
+                @media(max-width: 950px){
+                    margin: 36px 0px 0px 0px;
+                }
+
+                @media(max-width: 700px){
+                    padding: 0px 0px 0px 0px;
+                }
+            }
+
+            .title{
+                font-size: 31px;
+                
+                @media(max-width: 1200px){
+                    font-size: 25px;
+                }
+            }
+
+            .item__content{
+                margin: 32px 0px 0px 0px;
+                font-size: 16px;
+                line-height: 26px;
+
+                @media(max-width: 1200px){
+                    margin: 20px 0px 0px 0px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.burger {
+  width: 30px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.burger span:before,
+.burger span:after {
+  content: "";
+  position: absolute;
+}
+
+.burger span,
+.burger span:before,
+.burger span:after {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+}

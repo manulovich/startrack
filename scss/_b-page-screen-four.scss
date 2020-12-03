@@ -1,0 +1,38 @@
+.b-page-screen-four {
+
+    .title{
+        margin: 23px 0px 0px 0px;
+    }
+
+    &__we {
+        margin: 0px -10px 0px -10px;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        margin: 45px 0px 0px 0px;
+        flex: 0 0 33.333%;
+        padding: 0px 10px;
+
+        @media(max-width: 800px){
+            flex: 0 0 100%;
+        }
+	}
+
+	&__icon {
+        width: 100%;
+        height: auto;
+    }
+    
+    &__prof{
+        color: rgba(15, 15, 15, 0.5);
+        font-size: 16px;
+        margin: 44px 0px 20px 0px;
+    }
+
+	&__name {
+        font-weight: 500;
+        font-size: 24px;
+	}
+}
+

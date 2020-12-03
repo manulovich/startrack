@@ -1,0 +1,89 @@
+.b-page-screen-five {
+        color: #0F0F0F;
+        position: relative;
+    
+        .title {
+            margin: 31px 0px 0px 0px;
+        }
+    
+        &__blog {
+            margin: 0px -10px;
+            flex-wrap: wrap;
+        }
+    
+        &__item {
+            flex: 0 0 33.333%;
+            margin: 58px 0px 0px 0px;
+            padding: 0px 10px;
+            display: flex;
+            flex-direction: column;
+    
+            @media(max-width: 950px){
+                flex: 0 0 50%;
+            }
+    
+            @media(max-width: 700px){
+                flex: 0 0 100%;
+            }
+        }
+    
+        &__top {
+            position: relative;
+        }
+    
+        &__icon {
+            width: 100%;
+        }
+    
+        &__area {
+            padding: 20px 47px;
+            color: #fff;
+            background-color: #000;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            transform: translateY(50%);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 15px;
+            cursor: default;
+        }
+        
+        &__content{
+            margin: 62px 0px 0px 0px;
+        }
+    
+        &__data {
+            display: block;
+            font-size: 16px;
+            margin: 0px 0px 26px 0px;
+        }
+    
+        &__title {
+            font-weight: 500;
+            font-size: 28px;
+            line-height: 31px;
+        }
+    
+        &__subtitle {
+            margin: 35px 0px 30px 0px;
+            font-size: 16px;
+            line-height: 31px;
+        }
+    
+        &__more {
+            font-weight: 700;
+            color: #000;
+            cursor: pointer;
+            transition: .3s;
+    
+        &:hover{
+            letter-spacing: 2px;
+    
+            @media(max-width: 700px){
+                letter-spacing: 0px;
+            }
+        }
+    }
+}
+    

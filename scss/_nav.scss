@@ -1,0 +1,43 @@
+.nav{
+    
+    @media(max-width: 850px){
+        display: none;
+    }
+
+    &__item{
+        font-size: 13px;
+        font-weight: 500;
+        margin: 0px 17px;
+        text-transform: uppercase;
+        position: relative;
+        cursor: pointer;
+
+        &:hover{
+            animation-name: hover_link;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-delay: none;
+            animation-iteration-count: infinite;
+        }
+        
+        &:first-child{
+            margin: 0px 17px 0px 0px;
+        }
+
+        &:last-child{
+            margin: 0px 0px 0px 17px;
+        }
+    }
+}
+
+@keyframes hover_link {
+    0% {
+      left: 0px;
+    }
+    50% {
+        left: -5px;
+    }
+    100% {
+        left: 5px;
+    }
+  }

@@ -1,0 +1,17 @@
+.soc-block{
+
+    img{
+        height: 100%;
+        margin: 0px 5px 0px 0px;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+
+        &:last-child{
+            margin: 0px;
+        }
+    }
+}

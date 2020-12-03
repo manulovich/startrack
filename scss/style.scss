@@ -1,0 +1,74 @@
+#js-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.fixed {
+    overflow-y: hidden;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 36px;
+
+    @media (max-width: 1200px) {
+        font-size: 30px;
+    }
+}
+
+.subtitle {
+    font-size: 16px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 0px 0px 0px 53px;
+
+    &:before {
+        content: "";
+        width: 35px;
+        height: 1px;
+        background-color: #000;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-3px);
+        left: 0px;
+    }
+}
+
+@import "../scss/b-page";
+
+@import "../scss/b-header";
+
+@import "../scss/_logo.scss";
+
+@import "../scss/_nav.scss";
+
+@import "../scss/_button.scss";
+
+@import "../scss/_burger.scss";
+
+@import "../scss/_page-up.scss";
+
+@import "../scss/_b-container.scss";
+
+@import "../scss/_soc-block.scss";
+
+@import "../scss/_phone-number.scss";
+
+@import "../scss/_b-page-screen-one.scss";
+
+@import "../scss/_icon-container.scss";
+
+@import "../scss/_b-page-screen-two.scss";
+
+@import "../scss/_b-page-screen-three.scss";
+
+@import "../scss/_b-page-screen-four.scss";
+
+@import "../scss/_b-page-screen-five.scss";
+
+@import "../scss/_b-page-screen-six.scss";
+
+@import "../scss/_write-us.scss";
+
+@import "../scss/_b-footer.scss";

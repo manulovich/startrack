@@ -1,0 +1,39 @@
+.page-up{
+    display: none;
+    width: 60px;
+    height: 80px;
+    position: fixed;
+    z-index: 1000;
+    right: 3%;
+    bottom: 3%;
+    background-color: #000;
+    clip-path: polygon(0% 70%, 50% 0%, 100% 70%, 50% 100%);
+    cursor: pointer;
+    transition: .3s;
+
+    @media(max-width: 500px){
+        width: 40px;
+        height: 60px;
+    }
+
+    &:hover{
+        transform: scale(1.1);
+    }
+
+    &:before{
+        content: "";
+        width: 50px;
+        height: 70px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        clip-path: polygon(0% 70%, 50% 0%, 100% 70%, 50% 100%);
+        background-color: rgba(255, 255, 255, 1);
+
+        @media(max-width: 500px){
+            width: 30px;
+            height: 50px;
+        }
+    }
+}
